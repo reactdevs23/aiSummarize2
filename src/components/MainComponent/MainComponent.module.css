@@ -1,0 +1,123 @@
+.wrapper {
+  --oddBoxWidth: 140px;
+  --evenBoxWidth: 164px;
+  display: flex;
+  gap: 70px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: calc(var(--marginBottom) + 100px);
+}
+.wrapper::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  bottom: -50px;
+
+  width: calc(100% - calc(var(--oddBoxWidth) + var(--evenBoxWidth)) / 2);
+  height: 3px;
+  background: var(--lineColor);
+}
+.box {
+  width: 164px;
+  aspect-ratio: 1/1;
+  background: var(--boxBg);
+  border: var(--border);
+  box-shadow: var(--boxShadow);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 25px;
+  position: relative;
+}
+
+.odd {
+  width: var(--oddBoxWidth);
+}
+
+.even {
+  width: var(--evenBoxWidth);
+}
+.odd:before,
+.odd:after,
+.even::before,
+.even::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  bottom: -50px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--linePointColor);
+}
+.odd::before,
+.even::before {
+  width: 28px;
+  height: 28px;
+  background: var(--linePointBorderColor);
+}
+.curve {
+  width: 24px;
+  height: 24px;
+  background: var(--curveColor);
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 30%) rotate(45deg);
+}
+.icon {
+  max-width: 32px;
+}
+.title {
+  color: var(--titleColor);
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+.even .title {
+  font-weight: 600;
+}
+.features {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, calc(100% + 100px));
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.featureHeading {
+  color: var(--featureHeadingColor);
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 1.2px;
+}
+
+.feature {
+  text-align: center;
+  color: var(--featuresColor);
+  text-align: center;
+  background: var(--featuresBg);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  padding: 12px 15px;
+  width: 100%;
+  border-radius: 20px;
+  white-space: nowrap;
+}
